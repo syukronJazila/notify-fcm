@@ -3,43 +3,45 @@
 use Google\Auth\Credentials\ServiceAccountCredentials;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 
-require '/vendor/autoload.php';
+echo "Test!!! Bisanya"
 
-$credential = new ServiceAccountCredentials(
-    "https://www.googleapis.com/auth/firebase.messaging",
-    json_decode(file_get_contents("pvKey.json"), true)
-);
+// require '/vendor/autoload.php';
 
-$token = $credential->fetchAuthToken(HttpHandlerFactory::build());
+// $credential = new ServiceAccountCredentials(
+//     "https://www.googleapis.com/auth/firebase.messaging",
+//     json_decode(file_get_contents("pvKey.json"), true)
+// );
 
-$ch = curl_init("https://fcm.googleapis.com/v1/projects/flodec-p24s/messages:send");
+// $token = $credential->fetchAuthToken(HttpHandlerFactory::build());
 
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'Content-Type: application/json',
-    'Authorization: Bearer '.$token['access_token']
-]);
+// $ch = curl_init("https://fcm.googleapis.com/v1/projects/flodec-p24s/messages:send");
 
-    $payload = json_encode([
-        "message" => [
-            "topic" => "notif",
-            "notification" => [
-                "body" => "Hujan deras terjadi di Jl. Gaperta Ujung, 10 menit lagi akan banjir nih",
-                "title" => "Flodecs"
-            ],
-            "android" => [
-                "notification" => [
-                  "icon" => "baseline_info_24"
-                ]
-            ],
-        ]
-    ]);
+// curl_setopt($ch, CURLOPT_HTTPHEADER, [
+//     'Content-Type: application/json',
+//     'Authorization: Bearer '.$token['access_token']
+// ]);
 
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+//     $payload = json_encode([
+//         "message" => [
+//             "topic" => "notif",
+//             "notification" => [
+//                 "body" => "Hujan deras terjadi di Jl. Gaperta Ujung, 10 menit lagi akan banjir nih",
+//                 "title" => "Flodecs"
+//             ],
+//             "android" => [
+//                 "notification" => [
+//                   "icon" => "baseline_info_24"
+//                 ]
+//             ],
+//         ]
+//     ]);
+
+//     curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
     
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+//     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     
-    $response = curl_exec($ch);
+//     $response = curl_exec($ch);
     
-    echo $response;
+//     echo $response;
 
-curl_close($ch);
+// curl_close($ch);
