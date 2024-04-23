@@ -7,7 +7,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 $credential = new ServiceAccountCredentials(
     "https://www.googleapis.com/auth/firebase.messaging",
-    json_decode(file_get_contents("pvKey.json"), true)
+    json_decode(file_get_contents(__DIR__ . "pvKey.json"), true)
 );
 
 $token = $credential->fetchAuthToken(HttpHandlerFactory::build());
