@@ -3,7 +3,7 @@
 use Google\Auth\Credentials\ServiceAccountCredentials;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 
-require '/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 $credential = new ServiceAccountCredentials(
     "https://www.googleapis.com/auth/firebase.messaging",
