@@ -9,6 +9,7 @@ $jsonData = file_get_contents("php://input");
 
 $data = json_decode($jsonData, true);
 
+$title = $data["title"]
 $message = $data["message"];
 
 $credential = new ServiceAccountCredentials(
@@ -30,7 +31,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, [
             "topic" => "notif",
             "notification" => [
                 "body" => $message,
-                "title" => "Flodecs"
+                "title" => $title
             ],
             "android" => [
                 "notification" => [
